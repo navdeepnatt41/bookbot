@@ -17,3 +17,21 @@ def character_count(file_text: str) -> dict[str, int]:
             char_counts[c] = 1
 
     return char_counts
+
+def sort_counted_character(char_counts: dict[str, int]) -> list[dict[str,int]]:
+    """
+    Takes a list of character count mappings for a text and returns them
+    in order as a list.
+    """
+
+    sorted_counts: list[dict] = []
+    for k, v in char_counts.items():
+        sorted_counts.append(
+                {
+                    "char" : k,
+                    "num" : v
+                    }
+            )
+    sorted_counts.sort(reverse=True, key=lambda e: e["num"])
+    return sorted_counts
+
